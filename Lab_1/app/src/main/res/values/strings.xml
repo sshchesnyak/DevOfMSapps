@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Map Demo</string>
+    <string name="title_activity_maps">Map Demo Page</string>
+    <string name="DefaultCity">Select a city</string>
+    <string name="getPopulation">Population: </string>
+    <string name="Moscow">Moscow</string>
+    <string name="SaintPetersburgh">Saint-Petersburgh</string>
+    <string name="Sochi">Sochi</string>
+    <string name="SouthSahalinsk">South-Sahalinsk</string>
+    <string name="Yaroslavl">Yaroslavl</string>
+    <string name="authorCredentials">IU3-83B Sergey Shchesnyak sshchesnyak@gmail.com</string>
+</resources>

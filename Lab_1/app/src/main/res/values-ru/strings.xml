@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Демо Карты</string>
+    <string name="title_activity_maps">Демо страница с картой</string>
+    <string name="DefaultCity">Выберите город</string>
+    <string name="getPopulation">Население города: </string>
+    <string name="Moscow">Москва</string>
+    <string name="SaintPetersburgh">Санкт-Петербург</string>
+    <string name="Sochi">Сочи</string>
+    <string name="SouthSahalinsk">Южно-Сахалинск</string>
+    <string name="Yaroslavl">Ярославль</string>
+    <string name="authorCredentials">ИУ3-83Б Щесняк С.С. sshchesnyak@gmail.com</string>
+</resources>
