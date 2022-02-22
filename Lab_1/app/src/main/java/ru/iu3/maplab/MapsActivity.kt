@@ -16,44 +16,105 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import ru.iu3.maplab.databinding.MapContainerBinding
 
-var mapReady: Boolean = false;
-
-class MapsActivity :
-    AppCompatActivity(),
-    OnMapReadyCallback {
+class MapsActivity : //точка входа в приложение
+    AppCompatActivity(), //вызов конструктора базового класса для activity
+    OnMapReadyCallback { //этот activity реализует интерфейс OnMapReadyCallback, подготавливающий карту Google к использованию
 
         private lateinit var mMap: GoogleMap
+        /* GoogleMap представляет собой объект, с помощью которого выполняются следующие функции:
+        -Подключение к сервису GoogleMaps
+        -Скачивание карт
+        -Отображение карт
+        -Отображение элементов управления (перемещение и увеличение/уменьшение)
+        -Реагирование на воздействие пользователя на элементы управления
+        Именно через него осуществляется работа с картами (в т.ч. добавление маркеров)
+         */
         private lateinit var binding: MapContainerBinding
+        /*
+        MapContainerBinding - автоматически сгенерированный класс для XML файла map_container.
+        Он содержит ссылки на все элементы View (базового элемента пользовательского интерфейса), содержащиеся в
+        родительском ViewGroup (объединении View - LinearLayout).
+        Такая привязка ViewGroup к коду называется ViewBinding
+         */
         private lateinit var myLocations: ArrayList<Locations>
+        //Изменяемый список объектов dataclass, которые содержат информацию о метках на карте
 
         override fun onCreate(savedInstanceState: Bundle?) {
+            /*
+            В качестве параметра передаем Bundle - аналог Map для хранения отображений ключ-значение.
+            В качестве ключа выступает string, а значения имеют примитивные или сериализуемые типы
+             */
             super.onCreate(savedInstanceState)
+            //вызов метода базового класса onCreate с передачей того же Bundle
 
             binding = MapContainerBinding.inflate(layoutInflater)
+            /*
+            Создаем объект класса MapContainerBinding, т.е. из ссылок на элементов формируем (надуваем) саму ViewGroup c помощью layoutInflater.
+            layoutInflater - абстрактный класс, методы которого позволяют из XML файла сделать View
+             */
             setContentView(binding.root)
+            /*
+            Передаем эту ViewGroup Activity, в результате чего она отображается на экране.
+            binding.root - ссылка на эту ViewGroup
+             */
 
             // Obtain the SupportMapFragment and get notified when the map is ready to be used.
             val mapFragment = supportFragmentManager
                 .findFragmentById(R.id.map) as SupportMapFragment
+            /*
+            supportFragmentManager - класс, который используется для взаимодействия с фрагментами (добавление, удаление, замена и т.д.)
+            Фрагменты - части интерфейса, которые:
+            -Представляют собой прямоугольные области, которые обрабатывают события польз.
+            -Имеют свой жизненный цикл
+            -Могут иметь свою разметку
+            -Находятся внутри activity (single-activity подход)
+            -Может переиспользоваться (в них может в разное время отображаться разный контент).
+            Тут мы его используем для того, чтобы создать объект, ссылающийся на фрагмент, содержащий карту, чтобы с ним работать
+             */
             mapFragment.getMapAsync(this)
+            /*
+            Асинхронно вызываем метод, получающий объект GoogleMap.
+            После того, как метод завершит работу, он передает этот объект onMapReady
+             */
 
-            //Initialize location data
+
             myLocations = locationInit()
+            //Генерируем список объектов с информацией о городах на карте
 
-            //supply the spinner with the array of elements
             val places: ArrayList<String> = arrayListOf()
             for (i in 0 until myLocations.size) places.add(myLocations[i].name)
+            //Создаем список наименований городов для передачи в спиннер
             val spinner: Spinner = findViewById<Spinner>(R.id.place_spinner)
+            //Находим в ViewGroup нужный нам View со спиннером
             val placeAdapter: ArrayAdapter<String> = ArrayAdapter(this,android.R.layout.simple_spinner_item,places)
+            /*
+            Cоздаем объект класса ArrayAdapter - набор View, каждая из которых имеет вид android.R.layout.simple_spinner_item и
+            соответствует одному из элементов списка places
+             */
             spinner.adapter = placeAdapter
+            //Закрепляем созданный объект за найденным спиннером
 
             spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+                /*
+                Создаем объект анонимного класса, который реализует интерфейс AdapterView.OnItemSelectedListener (обработчик события выбора города из выпадающего списка)
+                AdapterView - View, у которого есть свои дети, которые определяются созданным ранее объектом ArrayAdapter
+                 */
                 override fun onItemSelected(parent: AdapterView<*>, view: View?, pos: Int, id: Long) {
                     val selected = myLocations.firstNotNullOfOrNull { item -> item.takeIf { item.name == parent.getItemAtPosition(pos)} }
+                    //Получаем объект дата-класса (или null), соответствующий выбранному элементу списка
                     if (selected?.name == getString(R.string.DefaultCity)) return
+                    //Если был выбран дефолтный вариант (не город), то тогда просто завершаем работу обработчика
                     else{
                         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(selected?.location,5.0F))
+                        /*
+                        Перемещаем камеру так, чтобы в центре экрана оказалась метка с координатами выбранного города, увеличиваем уровнь масштабирования до 5
+                        CameraUpdateFactory - класс, который содержит методы для работы с местоположением и ориентацией камеры (в данном случае для изменения местоположения и уровня масштабирования)
+                         */
                         if (selected != null) Toast.makeText(applicationContext,getString(R.string.getPopulation)+selected.population.toString(),Toast.LENGTH_LONG).show()
+                        /*
+                        Выводим на экран всплывающее сообщение о численности населения в городе
+                        Toast - маленькое сообщение-уведомление, которое появляется на экране на ограниченное время
+                         */
                         else Toast.makeText(applicationContext,"Erroneous behaviour",Toast.LENGTH_LONG).show()
                     }
                 }
@@ -89,10 +150,6 @@ class MapsActivity :
             for (i in 1 until myLocations.size){
                 mMap.addMarker(MarkerOptions().position(myLocations.elementAt(i).location).title(myLocations.elementAt(i).name+". "+getString(R.string.getPopulation)+" "+myLocations.elementAt(i).population))
             }
-            mapReady=true;
-            // Add a marker in Sydney and move the camera
-            //val sydney = LatLng(-34.0, 151.0)
-            //mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
-            //mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+            //Добавляем маркеры на карту (параметры метода определяют местоположение маркера и текст, всплывающий над маркером при нажатии на него (содержащий информацию о количестве жителей в городе)
         }
     }
