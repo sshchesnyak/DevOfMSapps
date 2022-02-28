@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Cписок чисел</string>
+    <string name="selector">Выберете отображаемый набор чисел:</string>
+    <string name="positive">Положительные числа</string>
+    <string name="positive_sub">положительное</string>
+    <string name="negative">Отрицательные числа</string>
+    <string name="negative_sub">отрицательное</string>
+    <string name="prime">Простые числа</string>
+    <string name="prime_sub">простое</string>
+    <string name="neutral_sub">не имеет знака</string>
+    <string name="composite_sub">составное</string>
+    <string name="neither_sub">не является ни простым, ни составным</string>
+    <string name="numDetails">Это число:\u0020</string>
+    <string name="and">\u0020и\u0020</string>
+    <string name="authorCredentials">ИУ3-83Б Щесняк С.С. sshchesnyak@gmail.com</string>
+</resources>

@@ -1,7 +1,16 @@
 <resources>
     <string name="app_name">NumberExplorer</string>
     <string name="selector">Please select the type of numbers to display:</string>
-    <string name="positive">Positive</string>
-    <string name="negative">Negative</string>
-    <string name="prime">Prime</string>
+    <string name="positive">Positive numbers</string>
+    <string name="positive_sub">positive</string>
+    <string name="negative">Negative numbers</string>
+    <string name="negative_sub">negative</string>
+    <string name="prime">Prime numbers</string>
+    <string name="prime_sub">prime</string>
+    <string name="neutral_sub">neutral</string>
+    <string name="composite_sub">composite</string>
+    <string name="neither_sub">not prime or composite</string>
+    <string name="numDetails">This number is:\u0020</string>
+    <string name="and">\u0020and\u0020</string>
+    <string name="authorCredentials">IU3-83B Sergey Shchesnyak sshchesnyak@gmail.com</string>
 </resources>

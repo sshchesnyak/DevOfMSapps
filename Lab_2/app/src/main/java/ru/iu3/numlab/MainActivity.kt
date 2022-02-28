@@ -1,5 +1,6 @@
 package ru.iu3.numlab
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -49,13 +50,13 @@ class MainActivity : AppCompatActivity() {
                         newList.addAll(myCopy)
                     }
                     getString(R.string.positive)->{
-                        for(i in myCopy) if (i.sign=="positive") newList.add(i)
+                        for(i in myCopy) if (i.sign==getString(R.string.positive_sub)) newList.add(i)
                     }
                     getString(R.string.negative)->{
-                        for(i in myCopy) if (i.sign=="negative") newList.add(i)
+                        for(i in myCopy) if (i.sign==getString(R.string.negative_sub)) newList.add(i)
                     }
                     getString(R.string.prime)->{
-                        for(i in myCopy) if (i.complexity=="prime") newList.add(i)
+                        for(i in myCopy) if (i.complexity==getString(R.string.prime_sub)) newList.add(i)
                     }
                 }
                 numAdapter.swapNumbers(newList)
@@ -71,7 +72,7 @@ class MainActivity : AppCompatActivity() {
     private fun numInit(quantity:Int):MutableList<NumberItem>{
         val numberList = mutableListOf<NumberItem>()
         for (i in (-quantity/2)..(quantity/2)){
-            val currentNumber = NumberItem(i,"","")
+            val currentNumber = NumberItem(i,"","",applicationContext)
             currentNumber.setSign()
             currentNumber.setComplexity()
             numberList.add(currentNumber)
