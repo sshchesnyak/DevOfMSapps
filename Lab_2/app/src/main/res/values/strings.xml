@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">NumberExplorer</string>
+    <string name="selector">Please select the type of numbers to display:</string>
+    <string name="positive">Positive</string>
+    <string name="negative">Negative</string>
+    <string name="prime">Prime</string>
+</resources>
