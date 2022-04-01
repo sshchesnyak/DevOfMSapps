@@ -1,6 +1,5 @@
 package ru.iu3.numlab
 
-import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View

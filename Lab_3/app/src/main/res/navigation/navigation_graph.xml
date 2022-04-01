@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/MainFragment">
+
+    <fragment
+        android:id="@+id/MainFragment"
+        tools:layout="@layout/main"
+        android:name="ru.iu3.noteslab.pages.MainPage"
+        android:label="@string/mainFragment">
+
+        <action
+            android:id="@+id/action_MainFragment_to_NoteFragment"
+            app:destination="@id/NoteFragment">
+
+            <argument
+                android:name="noteContents"
+                app:argType="string"
+                android:defaultValue="default"/>
+
+        </action>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/NoteFragment"
+        tools:layout="@layout/note"
+        android:name="ru.iu3.noteslab.pages.NotePage"
+        android:label="@string/noteFragment">
+
+        <argument
+            android:name="noteContents"
+            app:argType="string"
+            android:defaultValue="default"/>
+
+        <action
+            android:id="@+id/action_NoteFragment_to_MainFragment"
+            app:destination="@id/MainFragment"
+            app:popUpTo="@id/NoteFragment"
+            app:popUpToInclusive="true"
+            app:popUpToSaveState="true"/>
+
+    </fragment>
+
+</navigation>

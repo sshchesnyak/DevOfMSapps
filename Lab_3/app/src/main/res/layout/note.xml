@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center"
+    android:weightSum="10"
+    android:divider="?android:dividerHorizontal"
+    android:showDividers="middle">
+
+    <EditText
+        android:id="@+id/note_title"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="start"
+        android:inputType="text"
+        android:hint="@string/defaultNoteTitle"
+        android:textSize="16sp"/>
+
+    <EditText
+        android:id="@+id/note_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="7"
+        android:gravity="top|start"
+        android:inputType="textMultiLine"
+        android:hint="@string/contentPlaceholder"
+        android:textSize="14sp"
+        android:scrollbars="vertical" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/save_btn"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:textSize="20sp"
+        android:text="@string/saveBtnText"
+        app:backgroundTint="@color/teal_700"/>
+
+    <TextView
+        android:id="@+id/container_title"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:padding="5dp"
+        android:textStyle="italic"
+        android:textSize="14sp"
+        android:layout_weight="1"
+        android:text="@string/authorCredentials" />
+
+</LinearLayout>

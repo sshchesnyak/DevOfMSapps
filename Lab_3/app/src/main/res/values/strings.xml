@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">NotesLab</string>
+    <string name="authorCredentials">IU3-83B Sergey Shchesnyak sshchesnyak@gmail.com</string>
+    <string name="mainFragment">Note List</string>
+    <string name="noteFragment">Note</string>
+    <string name="defaultNoteTitle">Title</string>
+    <string name="contentPlaceholder">Contents…</string>
+    <string name="saveBtnText">Save</string>
+    <string name="defaultNoteDate">01/01/2000</string>
+    <string name="addBtnText">+</string>
+    <string name="alertTitle">Action confirmation</string>
+    <string name="alertBody">Are you sure you wish to delete this note?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+</resources>
