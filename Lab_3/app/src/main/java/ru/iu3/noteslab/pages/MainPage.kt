@@ -31,9 +31,9 @@ class MainPage : Fragment(R.layout.main) {
             action.noteContents = note.toJSON()
             findNavController().navigate(action)
         }
-        val notes = Utils().getAllNotes(context)
         sortNoteButton = binding?.recyclerButtonContainer?.sortNotes
         sortNoteButton?.setOnClickListener{
+            val notes = Utils().getAllNotes(context)
             Utils().sortText(notes)
             noteAdapter.dispatchUpdates(notes)
             Utils().writeToFile(Utils().getFile(context),notes)
