@@ -15,7 +15,10 @@ class Utils {
     private val formatter = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
     private val fileName = "storage.txt"
     //modes: Serge, Kate, Demo (for sorting demonstration)
-    val mode = "Serge"
+    enum class Modes(){
+        SERGE, KATE, DEMO
+    }
+    val mode = Modes.SERGE
 
     fun getDefaultNote(context: Context?): NoteItem {
         return NoteItem(
@@ -62,7 +65,7 @@ class Utils {
 
     fun writeToFile(file: File, notes: MutableList<NoteItem>){
         val bufferedWriter = file.bufferedWriter()
-        if (mode=="Kate") sortText(notes)
+        if (mode==Modes.KATE) sortText(notes)
         for (i in 0 until notes.size) bufferedWriter.write(notes[i].toJSON() + "\n")
         bufferedWriter.close()
     }

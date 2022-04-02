@@ -1,6 +1,7 @@
 package ru.iu3.noteslab.pages
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import androidx.fragment.app.Fragment
@@ -32,9 +33,10 @@ class MainPage : Fragment(R.layout.main) {
             findNavController().navigate(action)
         }
         sortNoteButton = binding?.recyclerButtonContainer?.sortNotes
-        if (Utils().mode=="Serge") sortNoteButton?.visibility = View.GONE
+        Log.d("MODERN",Utils().mode.name)
+        if (Utils().mode==Utils.Modes.SERGE) sortNoteButton?.visibility = View.GONE
         sortNoteButton?.setOnClickListener{
-            if (Utils().mode!="Serge"){
+            if (Utils().mode!=Utils.Modes.SERGE){
                 val notes = Utils().getAllNotes(context)
                 Utils().sortText(notes)
                 noteAdapter.dispatchUpdates(notes)
