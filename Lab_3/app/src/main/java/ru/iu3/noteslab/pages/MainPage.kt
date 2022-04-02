@@ -32,11 +32,14 @@ class MainPage : Fragment(R.layout.main) {
             findNavController().navigate(action)
         }
         sortNoteButton = binding?.recyclerButtonContainer?.sortNotes
+        if (Utils().mode=="Serge") sortNoteButton?.visibility = View.GONE
         sortNoteButton?.setOnClickListener{
-            val notes = Utils().getAllNotes(context)
-            Utils().sortText(notes)
-            noteAdapter.dispatchUpdates(notes)
-            Utils().writeToFile(Utils().getFile(context),notes)
+            if (Utils().mode!="Serge"){
+                val notes = Utils().getAllNotes(context)
+                Utils().sortText(notes)
+                noteAdapter.dispatchUpdates(notes)
+                Utils().writeToFile(Utils().getFile(context),notes)
+            }
         }
     }
 
