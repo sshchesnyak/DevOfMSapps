@@ -8,6 +8,7 @@
     <string name="saveBtnText">Сохранить</string>
     <string name="defaultNoteDate">01/01/2000</string>
     <string name="addBtnText">+</string>
+    <string name="sortBtnText">↑↓</string>
     <string name="alertTitle">Подтвердите действие</string>
     <string name="alertBody">Вы действительно хотите удалить эту заметку?</string>
     <string name="yes">Да</string>

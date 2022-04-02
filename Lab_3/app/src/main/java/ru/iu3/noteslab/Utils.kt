@@ -38,7 +38,6 @@ class Utils {
     }
 
     fun getFile(context: Context?): File{
-        //val file = File(context?.filesDir, fileName)
         return File(context?.getExternalFilesDir(null),fileName)
     }
 
@@ -57,6 +56,35 @@ class Utils {
             bufferedReader.close()
         }
         return noteList
+    }
+
+    fun writeToFile(file: File, notes: MutableList<NoteItem>){
+        val bufferedWriter = file.bufferedWriter()
+        //sortText(notes)
+        for (i in 0 until notes.size) bufferedWriter.write(notes[i].toJSON() + "\n")
+        bufferedWriter.close()
+    }
+
+    //Sort by last letter of content
+    fun sortText(notes:MutableList<NoteItem>){
+        for (i in 0 until (notes.size-1)){
+            for (j in (notes.size-1) downTo (i+1)){
+                val first = notes[j].content
+                val second = notes[j-1].content
+                var switch = false
+                if (first.isNotEmpty() and second.isNotEmpty()){
+                    if (first[first.length-1]>second[second.length-1]) switch = true
+                }
+                else{
+                    if (second.isEmpty()) switch = true
+                }
+                if (switch){
+                    val temp = notes[j]
+                    notes[j] = notes[j-1]
+                    notes[j-1] = temp
+                }
+            }
+        }
     }
 
     object UUIDSerializer : KSerializer<UUID> {

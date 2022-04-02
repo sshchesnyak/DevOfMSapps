@@ -50,10 +50,7 @@ class NoteAdapter(private var myNotes: MutableList<NoteItem>,
                         val index = notes.indexOf(currentNote)
 
                         if (index != -1) notes.removeAt(index)
-                        val bufferedWriter = file.bufferedWriter()
-                        for (i in 0 until notes.size) bufferedWriter.write(notes[i].toJSON() + "\n")
-                        bufferedWriter.close()
-
+                        Utils().writeToFile(file,notes)
                         dispatchUpdates(notes)
                         dialog.cancel()
                     }

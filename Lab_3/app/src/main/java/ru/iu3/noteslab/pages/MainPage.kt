@@ -17,12 +17,13 @@ class MainPage : Fragment(R.layout.main) {
 
     private var binding: MainBinding?=null
     private var addNoteButton: Button?=null
+    private var sortNoteButton: Button?=null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val thisBinding = MainBinding.bind(view)
         binding=thisBinding
-        initRecycler()
+        val noteAdapter = initRecycler()
         addNoteButton = binding?.recyclerButtonContainer?.addNote
         addNoteButton?.setOnClickListener{
             val action = MainPageDirections.actionMainFragmentToNoteFragment()
@@ -30,9 +31,16 @@ class MainPage : Fragment(R.layout.main) {
             action.noteContents = note.toJSON()
             findNavController().navigate(action)
         }
+        val notes = Utils().getAllNotes(context)
+        sortNoteButton = binding?.recyclerButtonContainer?.sortNotes
+        sortNoteButton?.setOnClickListener{
+            Utils().sortText(notes)
+            noteAdapter.dispatchUpdates(notes)
+            Utils().writeToFile(Utils().getFile(context),notes)
+        }
     }
 
-    private fun initRecycler(){
+    private fun initRecycler():NoteAdapter{
         val noteList = Utils().getAllNotes(context)
         val noteAdapter = NoteAdapter(noteList,
             onShortClicked = {
@@ -45,6 +53,7 @@ class MainPage : Fragment(R.layout.main) {
         recNoteView.adapter = noteAdapter
         recNoteView.layoutManager = LinearLayoutManager(context,RecyclerView.VERTICAL,false)
         recNoteView.addItemDecoration(DividerItemDecoration(context,RecyclerView.VERTICAL))
+        return noteAdapter
     }
 
 }

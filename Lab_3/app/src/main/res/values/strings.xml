@@ -8,6 +8,7 @@
     <string name="saveBtnText">Save</string>
     <string name="defaultNoteDate">01/01/2000</string>
     <string name="addBtnText">+</string>
+    <string name="sortBtnText">↑↓</string>
     <string name="alertTitle">Action confirmation</string>
     <string name="alertBody">Are you sure you wish to delete this note?</string>
     <string name="yes">Yes</string>

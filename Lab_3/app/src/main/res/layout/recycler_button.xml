@@ -12,17 +12,32 @@
         android:scrollbars="vertical" />
     <com.google.android.material.button.MaterialButton
         android:id="@+id/add_note"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:insetLeft="0dp"
         android:insetTop="0dp"
         android:insetRight="0dp"
         android:insetBottom="0dp"
-        app:cornerRadius="50dp"
+        app:cornerRadius="70dp"
         android:layout_margin="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:backgroundTint="@color/teal_700"
         android:text="@string/addBtnText"
+        android:textSize="30sp"/>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/sort_notes"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:insetLeft="0dp"
+        android:insetTop="0dp"
+        android:insetRight="0dp"
+        android:insetBottom="0dp"
+        app:cornerRadius="70dp"
+        android:layout_margin="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:backgroundTint="@color/teal_700"
+        android:text="@string/sortBtnText"
         android:textSize="30sp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

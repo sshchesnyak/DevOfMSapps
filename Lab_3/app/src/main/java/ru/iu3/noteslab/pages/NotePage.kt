@@ -47,7 +47,7 @@ class NotePage : Fragment(R.layout.note) {
     private fun saveContents(){
 
         //check if content was edited
-        val unedited = (currentObject?.title == binding?.noteTitle?.text.toString()) and (currentObject?.content == binding?.noteContent?.text.toString())
+        val unedited = (currentObject?.content == binding?.noteContent?.text.toString()) and (currentObject?.title == binding?.noteTitle?.text.toString()) and (binding?.noteTitle?.text.toString()!="")
 
         if (!unedited){
             //initializing variables
@@ -66,9 +66,7 @@ class NotePage : Fragment(R.layout.note) {
             if (index!=-1) notes.removeAt(index)
             //adding an element to the top of the list (creating new element)
             notes.add(0, currentObject ?: Utils().getDefaultNote(context))
-            val bufferedWriter = file.bufferedWriter()
-            for (i in 0 until notes.size) bufferedWriter.write(notes[i].toJSON()+"\n")
-            bufferedWriter.close()
+            Utils().writeToFile(file,notes)
         }
 
         //clearing space before quitting
