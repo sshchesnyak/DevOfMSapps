@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:weightSum="14">
+
+    <TextView
+        android:id="@+id/parameterName"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="start"
+        android:padding="5dp"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:layout_weight="1"
+        android:text="@string/deviceName"/>
+
+    <TextView
+        android:id="@+id/electronicsName"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="start"
+        android:padding="5dp"
+        android:textSize="14sp"
+        android:layout_weight="1"
+        android:text=""/>
+
+    <TextView
+        android:id="@+id/parameterCategory"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="start"
+        android:padding="5dp"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:layout_weight="1"
+        android:text="@string/category"/>
+
+    <TextView
+        android:id="@+id/electronicsCategory"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="start"
+        android:padding="5dp"
+        android:textSize="14sp"
+        android:layout_weight="1"
+        android:text=""/>
+
+    <TextView
+        android:id="@+id/parameterCompany"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="start"
+        android:padding="5dp"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:layout_weight="1"
+        android:text="@string/brand"/>
+
+    <TextView
+        android:id="@+id/electronicsBrand"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="start"
+        android:padding="5dp"
+        android:textSize="14sp"
+        android:layout_weight="1"
+        android:text=""/>
+
+    <TextView
+        android:id="@+id/parameterWeight"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="start"
+        android:padding="5dp"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:layout_weight="1"
+        android:text="@string/weight"/>
+
+    <TextView
+        android:id="@+id/electronicsWeight"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="start"
+        android:padding="5dp"
+        android:textSize="14sp"
+        android:layout_weight="1"
+        android:text=""/>
+
+    <TextView
+        android:id="@+id/parameterVoltage"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="start"
+        android:padding="5dp"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:layout_weight="1"
+        android:text="@string/voltage"/>
+
+    <TextView
+        android:id="@+id/electronicsVoltage"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="start"
+        android:padding="5dp"
+        android:textSize="14sp"
+        android:layout_weight="1"
+        android:text=""/>
+
+    <TextView
+        android:id="@+id/parameterGuarantee"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="start"
+        android:padding="5dp"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:layout_weight="1"
+        android:text="@string/guarantee"/>
+
+    <TextView
+        android:id="@+id/electronicsGuarantee"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="start"
+        android:padding="5dp"
+        android:textSize="14sp"
+        android:layout_weight="1"
+        android:text=""/>
+
+    <TextView
+        android:id="@+id/parameterPrice"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="start"
+        android:padding="5dp"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:layout_weight="1"
+        android:text="@string/price"/>
+
+    <TextView
+        android:id="@+id/electronicsPrice"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="start"
+        android:padding="5dp"
+        android:textSize="14sp"
+        android:layout_weight="1"
+        android:text=""/>
+
+</LinearLayout>

@@ -38,7 +38,7 @@
         <action
             android:id="@+id/action_NoteFragment_to_MainFragment"
             app:destination="@id/MainFragment"
-            app:popUpTo="@id/NoteFragment"
+            app:popUpTo="@id/MainFragment"
             app:popUpToInclusive="true"
             app:popUpToSaveState="true"/>
 

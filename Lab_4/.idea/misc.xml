@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/sshch_6pmzvii/AndroidStudioProjects/multiservice_apps/Lab_4/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Users/sshch_6pmzvii/AndroidStudioProjects/multiservice_apps/Lab_4/app/src/main/res/layout/edit_page.xml" value="0.264" />
+        <entry key="..\:/Users/sshch_6pmzvii/AndroidStudioProjects/multiservice_apps/Lab_4/app/src/main/res/layout/edit_parameters.xml" value="0.4" />
+        <entry key="..\:/Users/sshch_6pmzvii/AndroidStudioProjects/multiservice_apps/Lab_4/app/src/main/res/layout/guarantee_container.xml" value="0.6" />
+        <entry key="..\:/Users/sshch_6pmzvii/AndroidStudioProjects/multiservice_apps/Lab_4/app/src/main/res/layout/list_pos.xml" value="0.264" />
+        <entry key="..\:/Users/sshch_6pmzvii/AndroidStudioProjects/multiservice_apps/Lab_4/app/src/main/res/layout/main_page.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/sshch_6pmzvii/AndroidStudioProjects/multiservice_apps/Lab_4/app/src/main/res/layout/recycler_button.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/sshch_6pmzvii/AndroidStudioProjects/multiservice_apps/Lab_4/app/src/main/res/layout/view_page.xml" value="0.264" />
+        <entry key="..\:/Users/sshch_6pmzvii/AndroidStudioProjects/multiservice_apps/Lab_4/app/src/main/res/layout/view_parameters.xml" value="0.264" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

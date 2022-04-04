@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/edit_page"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:weightSum="10"
+    android:divider="?android:dividerHorizontal"
+    android:showDividers="middle"
+    tools:context=".pages.MainActivity">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:padding="5dp"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:layout_weight="1"
+        android:text="@string/editingProperties"/>
+
+    <include
+        android:id="@+id/edit_container"
+        layout="@layout/edit_parameters"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="7"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/save_btn"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:textSize="16sp"
+        android:text="@string/saveBtnText"
+        app:backgroundTint="@color/teal_700"/>
+
+    <TextView
+        android:id="@+id/container_title"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:padding="5dp"
+        android:textStyle="italic"
+        android:textSize="14sp"
+        android:layout_weight="1"
+        android:text="@string/authorCredentials" />
+
+</LinearLayout>

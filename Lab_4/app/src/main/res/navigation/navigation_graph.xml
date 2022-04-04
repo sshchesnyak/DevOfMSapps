@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/MainFragment">
+
+    <fragment
+        android:id="@+id/MainFragment"
+        tools:layout="@layout/main_page"
+        android:name="ru.iu3.electronicslab.pages.MainPage"
+        android:label="Electronics List">
+
+        <action
+            android:id="@+id/action_MainFragment_to_ViewFragment"
+            app:destination="@id/ViewFragment">
+
+            <argument
+                android:name="electronicsParams"
+                app:argType="string"
+                android:defaultValue="default"/>
+
+        </action>
+
+        <action
+            android:id="@+id/action_MainFragment_to_EditFragment"
+            app:destination="@id/EditFragment">
+
+            <argument
+                android:name="electronicsParams"
+                app:argType="string"
+                android:defaultValue="default"/>
+
+        </action>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/ViewFragment"
+        tools:layout="@layout/view_page"
+        android:name="ru.iu3.electronicslab.pages.ViewPage"
+        android:label="Electronics Specifications">
+
+        <argument
+            android:name="electronicsParams"
+            app:argType="string"
+            android:defaultValue="default"/>
+
+        <action
+            android:id="@+id/action_ViewFragment_to_EditFragment"
+            app:destination="@id/EditFragment">
+
+            <argument
+                android:name="electronicsParams"
+                app:argType="string"
+                android:defaultValue="default"/>
+
+        </action>
+
+        <action
+            android:id="@+id/action_ViewFragment_to_MainFragment"
+            app:destination="@id/MainFragment"
+            app:popUpTo="@id/MainFragment"
+            app:popUpToInclusive="true"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/EditFragment"
+        tools:layout="@layout/edit_page"
+        android:name="ru.iu3.electronicslab.pages.EditPage"
+        android:label="Edit Specifications">
+
+        <argument
+            android:name="electronicsParams"
+            app:argType="string"
+            android:defaultValue="default"/>
+
+        <action
+            android:id="@+id/action_EditFragment_to_ViewFragment"
+            app:destination="@id/ViewFragment"
+            app:popUpTo="@id/ViewFragment"
+            app:popUpToInclusive="true">
+
+            <argument
+                android:name="electronicsParams"
+                app:argType="string"
+                android:defaultValue="default"/>
+
+        </action>
+
+        <action
+            android:id="@+id/action_EditFragment_to_MainFragment"
+            app:destination="@id/MainFragment"
+            app:popUpTo="@id/MainFragment"
+            app:popUpToInclusive="true">
+        </action>
+
+    </fragment>
+
+</navigation>
