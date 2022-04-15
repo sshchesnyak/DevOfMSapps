@@ -76,12 +76,17 @@ class Utils {
             for (j in (notes.size-1) downTo (i+1)){
                 val first = notes[j].content
                 val second = notes[j-1].content
+                val firstDate = notes[j].date
+                val secondDate = notes[j-1].date
                 var switch = false
                 if (first.isNotEmpty() and second.isNotEmpty()){
                     if (first[first.length-1]>second[second.length-1]) switch = true
+                    if (first[first.length-1]==second[second.length-1]){
+                        if (firstDate.after(secondDate)) switch = true
+                    }
                 }
                 else{
-                    if (second.isEmpty()) switch = true
+                    if (second.isEmpty() and firstDate.after(secondDate)) switch = true
                 }
                 if (switch){
                     val temp = notes[j]

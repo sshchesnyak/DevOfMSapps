@@ -34,9 +34,8 @@ data class ElectronicsItem(@Serializable(with=Utils.UUIDSerializer::class)var id
         return this
     }
 
-    fun toGuarantee(period: String, type: String): String{
+    fun toGuarantee(period: String, type: String){
         this.guarantee = "$period $type"
-        return this.guarantee
     }
 
     fun getPeriod():String{
